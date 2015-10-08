@@ -28,39 +28,43 @@ function facebookLogin() {
 }
 
 function projify(fbid) {
-  var loadeds = [false, false];
-	var canvas = $('#fb-img').get(0);
-	var ctx = canvas.getContext('2d');
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.globalCompositeOperation = "destination-over";
-  var image = new Image();
-  image.crossOrigin = "Anonymous";
-  image.src = "http://graph.facebook.com/" + fbid + "/picture?width=320&height=320";
-  image.onload = function() {
-    $('#placeholder').fadeOut();
-    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#7238C0";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    if (loadeds[1]) {
-      var img = canvas.toDataURL('image/png');
-      $("#download").attr("href", img);
+
+    var imgLoaded = [false, false];
+
+    var profile = new Image();
+    profile.crossOrigin = "Anonymous";
+    profile.src = "http://graph.facebook.com/" + fbid + "/picture?width=320&height=320";
+    profile.onload = function() {
+        imgLoaded[0] = true;
+        draw();
+    };
+
+    var overlay = new Image();
+    overlay.crossOrigin = "Anonymous";
+    overlay.src = './assets/img/overlay.png';
+    overlay.onload = function() {
+        imgLoaded[1] = true;
+        draw();
+    };
+
+    var draw = function() {
+        if (imgLoaded[0] && imgLoaded[1]) {
+            $('#placeholder').fadeOut();
+
+            var canvas = $('#fb-img').get(0);
+            var ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.globalCompositeOperation = "overlay";
+
+            ctx.drawImage(profile, 0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#7238C0";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.drawImage(overlay, 0, 0, canvas.width, canvas.height);
+
+            var img = canvas.toDataURL('image/png');
+            $("#download").attr("href", img);
+        }
     }
-    else {
-      loadeds[0] = true;
-    }
-  };
-  var newimage = new Image();
-  newimage.crossOrigin = "Anonymous";
-  newimage.src = './assets/img/overlay.png';
-  newimage.onload = function () {
-    ctx.globalCompositeOperation = "overlay";
-    ctx.drawImage(newimage, 0, 0, canvas.width, canvas.height);
-    if (loadeds[0]) {
-      var img = canvas.toDataURL('image/png');
-      $("#download").attr("href", img);
-    }
-    else {
-      loadeds[1] = true;
-    }
-  };
 }
