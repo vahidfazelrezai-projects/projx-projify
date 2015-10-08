@@ -51,7 +51,7 @@ function projify(fbid) {
     };
     var newimage = new Image();
     newimage.crossOrigin = "Anonymous";
-    newimage.src = '/assets/img/overlay.png';
+    newimage.src = '../img/overlay.png';
     newimage.onload = function () {
         ctx.globalCompositeOperation = "overlay";
         ctx.drawImage(newimage, 0, 0, canvas.width, canvas.height);
