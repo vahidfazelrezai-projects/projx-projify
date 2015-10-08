@@ -130,4 +130,5 @@ canvas {
 
 .fb-loggedin {
     display: none;
+    padding: 15px;
 }
