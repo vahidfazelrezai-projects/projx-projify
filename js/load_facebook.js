@@ -39,7 +39,7 @@ function loadFBProfileImage(fbid) {
   image.onload = function() {
     $('#placeholder').fadeOut();
     ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#362487";
+    ctx.fillStyle = "#8DC73F";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     if (loadeds[1]) {
       var img = canvas.toDataURL('image/png');
@@ -51,7 +51,7 @@ function loadFBProfileImage(fbid) {
   };
   var newimage = new Image();
   newimage.crossOrigin = "Anonymous";
-  newimage.src = 'hackoverlay.png';
+  newimage.src = 'overlay.png';
   newimage.onload = function () {
     ctx.globalCompositeOperation = "overlay";
     ctx.drawImage(newimage, 0, 0, canvas.width, canvas.height);
