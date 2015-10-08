@@ -39,7 +39,7 @@ function loadFBProfileImage(fbid) {
   image.onload = function() {
     $('#placeholder').fadeOut();
     ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#8DC73F";
+    ctx.fillStyle = "#7238C0";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     if (loadeds[1]) {
       var img = canvas.toDataURL('image/png');
