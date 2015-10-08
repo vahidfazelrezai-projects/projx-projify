@@ -62,7 +62,7 @@ function projify(fbid) {
             ctx.fillStyle = "#7238C0";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.globalCompositeOperation = "destination-over";
+            ctx.globalCompositeOperation = "source-over";
 
             ctx.drawImage(overlay, 0, 0, canvas.width, canvas.height);
 
