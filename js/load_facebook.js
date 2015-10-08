@@ -53,7 +53,7 @@ function loadFBProfileImage(fbid) {
   newimage.crossOrigin = "Anonymous";
   newimage.src = './img/overlay.png';
   newimage.onload = function () {
-    ctx.globalCompositeOperation = "destination-over";
+    ctx.globalCompositeOperation = "source-over";
     ctx.drawImage(newimage, 0, 0, canvas.width, canvas.height);
     if (loadeds[0]) {
       var img = canvas.toDataURL('image/png');
