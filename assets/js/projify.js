@@ -19,8 +19,8 @@ function facebookLogin() {
 		if (response.authResponse) {
 			FB.api('/me', function(response) {
 				var fbid = response.id;
-                $('.fb-loggedin').fadeIn();
-                $('.fb-loggedout').fadeOut();
+                $('.fb-loggedin').css('display', 'inline');
+                $('.fb-loggedout').fadeOut('display', 'none');
 				projify(fbid);
 			});
 		} else {

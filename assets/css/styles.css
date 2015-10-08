@@ -112,19 +112,20 @@ canvas {
 }
 
 .btn {
-    background: #7238C0;
     border: none;
     color: white !important;
-    font-size: 1.2em;
-    padding: 12px 24px;
 }
 
 #login {
     background: #7238C0;
+    padding: 12px 24px;
+    font-size: 1.2em;
 }
 
 #download {
     background: #8DC73F;
+    padding: 12px 24px;
+    font-size: 1.2em;
 }
 
 .fb-loggedin {
