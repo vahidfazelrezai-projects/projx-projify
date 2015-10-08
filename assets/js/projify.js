@@ -54,12 +54,15 @@ function projify(fbid) {
             var canvas = $('#fb-img').get(0);
             var ctx = canvas.getContext('2d');
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+
             ctx.globalCompositeOperation = "overlay";
 
             ctx.drawImage(profile, 0, 0, canvas.width, canvas.height);
 
             ctx.fillStyle = "#7238C0";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.globalCompositeOperation = "destination-over";
 
             ctx.drawImage(overlay, 0, 0, canvas.width, canvas.height);
 
