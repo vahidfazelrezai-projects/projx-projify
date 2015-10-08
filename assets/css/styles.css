@@ -1,12 +1,11 @@
+body {
+    margin: 0px auto;
+    font-family: "Open Sans", sans-serif
+}
+
 canvas {
     width: 320px;
     height: 320px;
-}
-
-/* Pink #e76482 */
-body {
-    margin: 0px auto;
-    font-family: "Montserrat", sans-serif
 }
 
 #fb-btn {
@@ -44,23 +43,6 @@ body {
     overflow: hidden;
 }
 
-#loading {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    transition-duration: .5s;
-    opacity: 1;
-}
-
-#loading.hidden {
-    opacity: 0;
-}
-
 #pic-container {
     position: relative;
     width: 320px;
@@ -87,7 +69,6 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    /*background: red;*/
 }
 
 #text {
@@ -96,7 +77,6 @@ body {
 }
 
 #title, #subtitle {
-    font-family: 'Montserrat', 'Helvetica', sans-serif;
     letter-spacing: 5.5px;
     font-weight: 700;
     text-align: center;
@@ -132,13 +112,21 @@ body {
 }
 
 .btn {
-    background: #e76482;
+    background: #7238C0;
     border: none;
     color: white !important;
     font-size: 1.2em;
     padding: 12px 24px;
 }
 
-.btn.blue {
-    background: #4c82cc;
+#login {
+    background: #7238C0;
+}
+
+#download {
+    background: #8DC73F;
+}
+
+.fb-loggedin {
+    display: none;
 }

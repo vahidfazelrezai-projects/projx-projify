@@ -7,8 +7,7 @@
 
         <link href="assets/css/styles.css" rel="stylesheet">
         <link href="assets/css/semantic.min.css" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
@@ -17,9 +16,9 @@
       <div id="card">
         <div class="container">
           <div class="content">
-            <div class="ui segment">
-              <div id="#pic-container">
-                <img id="placeholder" src="./assets/img/generic.png">
+            <div class="ui raised segment">
+              <div id="pic-container">
+                <img id="placeholder" src="./assets/img/placeholder.png">
                 <canvas id="fb-img" width="320px" height="320px"></canvas>
               </div>
               <div id="text">
@@ -28,18 +27,15 @@
                 </div>
                 <div id="info">
                     <p>
-                        Don't worry, this won't change your profile picture. You will have to download it and set it yourself 😎
+                        Download a projified version of your Facebook profile picture!
                     </p>
                 </div>
-                <br>
-                <div id="fb-loggedout">
-                    <button class="btn" onclick="facebookLogin()">Login with Facebook</button>
+                <div class="fb-loggedout">
+                    <button id="login" class="btn" onclick="facebookLogin()">Login with Facebook</button>
                 </div>
-                <br> <br>
-                <div id="fb-loggedin">
-                    <a id="download" class="btn blue" download="projified.png">Download</a>
+                <div class="fb-loggedin">
+                    <a id="download" class="btn" download="projified.png">Download</a>
                 </div>
-                <br>
               </div>
             </div>
           </div>
