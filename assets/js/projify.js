@@ -39,7 +39,7 @@ function projify(fbid) {
     image.onload = function() {
         $('#placeholder').fadeOut();
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "#7238C0";
+        ctx.fillStyle = "rgba(114, 56, 192, 0.25)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         if (loadeds[1]) {
             var img = canvas.toDataURL('image/png');
@@ -53,7 +53,7 @@ function projify(fbid) {
     newimage.crossOrigin = "Anonymous";
     newimage.src = '/assets/img/overlay.png';
     newimage.onload = function () {
-        ctx.globalCompositeOperation = "source-atop";
+        ctx.globalCompositeOperation = "destination-over";
         ctx.drawImage(newimage, 0, 0, canvas.width, canvas.height);
         if (loadeds[0]) {
             var img = canvas.toDataURL('image/png');
