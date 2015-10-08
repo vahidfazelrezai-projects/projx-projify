@@ -28,38 +28,39 @@ function facebookLogin() {
 }
 
 function projify(fbid) {
-    var loadeds = [false, false];
-    var canvas = $('#fb-img').get(0);
+  var loadeds = [false, false];
+	var canvas = $('#fb-img').get(0);
 	var ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.globalCompositeOperation = "soft-light";
-    var image = new Image();
-    image.crossOrigin = "Anonymous";
-    image.src = "http://graph.facebook.com/" + fbid + "/picture?width=320&height=320";
-    image.onload = function() {
-        $('#placeholder').fadeOut();
-        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "#7238C0";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        if (loadeds[1]) {
-            var img = canvas.toDataURL('image/png');
-            $("#download").attr("href", img);
-        }
-        else {
-            loadeds[0] = true;
-        }
-    };
-    var newimage = new Image();
-    newimage.crossOrigin = "Anonymous";
-    newimage.src = '../img/overlay.png';
-    newimage.onload = function () {
-        ctx.globalCompositeOperation = "overlay";
-        ctx.drawImage(newimage, 0, 0, canvas.width, canvas.height);
-        if (loadeds[0]) {
-            var img = canvas.toDataURL('image/png');
-            $("#download").attr("href", img);
-        } else {
-            loadeds[1] = true;
-        }
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.globalCompositeOperation = "soft-light";
+  var image = new Image();
+  image.crossOrigin = "Anonymous";
+  image.src = "http://graph.facebook.com/" + fbid + "/picture?width=320&height=320";
+  image.onload = function() {
+    $('#placeholder').fadeOut();
+    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#7238C0";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    if (loadeds[1]) {
+      var img = canvas.toDataURL('image/png');
+      $("#download").attr("href", img);
+    }
+    else {
+      loadeds[0] = true;
+    }
+  };
+  var newimage = new Image();
+  newimage.crossOrigin = "Anonymous";
+  newimage.src = '/assets/img/overlay.png';
+  newimage.onload = function () {
+    ctx.globalCompositeOperation = "overlay";
+    ctx.drawImage(newimage, 0, 0, canvas.width, canvas.height);
+    if (loadeds[0]) {
+      var img = canvas.toDataURL('image/png');
+      $("#download").attr("href", img);
+    }
+    else {
+      loadeds[1] = true;
+    }
   };
 }
