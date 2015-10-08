@@ -20,7 +20,7 @@ function facebookLogin() {
 			FB.api('/me', function(response) {
 				var fbid = response.id;
                 $('.fb-loggedin').css('display', 'inline');
-                $('.fb-loggedout').fadeOut('display', 'none');
+                $('.fb-loggedout').css('display', 'none');
 				projify(fbid);
 			});
 		} else {
