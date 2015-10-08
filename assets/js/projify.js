@@ -32,7 +32,7 @@ function projify(fbid) {
 	var canvas = $('#fb-img').get(0);
 	var ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.globalCompositeOperation = "soft-light";
+  ctx.globalCompositeOperation = "destination-over";
   var image = new Image();
   image.crossOrigin = "Anonymous";
   image.src = "http://graph.facebook.com/" + fbid + "/picture?width=320&height=320";
